@@ -17,7 +17,7 @@ Size <- read.table('data/GLOSSAQUA_Size.txt', header = TRUE)
 ## Merge "Size" and "Sample" datasets together (BUT DO NOT remove duplicates)
 ## Transform "SizeSpectrumMethod" variable into a factor
 ## Rename the levels of "SizeSpectrumMethod"
-Size_Sample <- full_join(Sample, Size, by = c("SourceID", "SiteID")) %>%
+Size_Sample <- full_join(Sample, Size, by = c("StudyID", "SiteID")) %>%
   mutate(SizeSpectrumMethod = as.factor(SizeSpectrumMethod)) %>% 
   mutate(SizeSpectrumMethod  = factor(SizeSpectrumMethod, labels = c("ASS", "BSS", "MLE", "NASS", "NBSS", "Pareto")))
 
